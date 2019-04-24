@@ -1,2 +1,2 @@
 # MinionsTechGroupF
-Repo to upload homework and tasks
+Repo to upload homeworks and tasks
