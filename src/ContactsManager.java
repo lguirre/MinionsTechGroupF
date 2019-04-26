@@ -29,13 +29,12 @@ public class ContactsManager {
         }
         return null;
     }
-    Contact matchContact(String searchMatch){
+    void matchContact(String searchMatch){
         for(int i=0; i<friendsCount; i++){
             if(myFriends[i].name.contains(searchMatch)){
-                return myFriends[i];
+                displayContact(i);
             }
         }
-        return null;
     }
     Contact removeContact(String contactName){
         boolean found = false;
@@ -55,5 +54,15 @@ public class ContactsManager {
             friendsCount--;
         }
         return removed;
+    }
+    void displayContact(int contactPosition){
+        if (myFriends[contactPosition] != null){
+            System.out.print((contactPosition + 1) + ".\t" + myFriends[contactPosition].name);
+            if (!myFriends[contactPosition].phoneNumber.equals(""))
+                System.out.print( ", " + myFriends[contactPosition].phoneNumber);
+            if (!myFriends[contactPosition].email.equals(""))
+                System.out.print( ", " + myFriends[contactPosition].email);
+            System.out.print("\n");
+        }
     }
 }

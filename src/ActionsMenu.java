@@ -15,7 +15,7 @@ public class ActionsMenu {
         contactsManager = new ContactsManager();
     }
     public void displayMenu(){
-        System.out.println("Select an action:\n" +
+        System.out.println("Select action:\n" +
                 "1. Add contact\n"+
                 "2. Show contacts\n"+
                 "3. Search contact\n"+
@@ -29,19 +29,15 @@ public class ActionsMenu {
     public void runAction(String option){
         switch (option){
             case "1":
-                //System.out.println("Add option selected\n");
                 addOption();
                 break;
             case "2":
-                //System.out.println("Show option selected\n");
                 showContacts();
                 break;
             case "3":
-                //System.out.println("Search option selected\n");
                 searchContact();
                 break;
             case "4":
-                //System.out.println("Remove contact\n");
                 removeContact();
                 break;
             case "5":
@@ -78,7 +74,7 @@ public class ActionsMenu {
                     System.out.print( ", " + contactsManager.myFriends[i].phoneNumber);
                 if (!contactsManager.myFriends[i].email.equals(""))
                     System.out.print( ", " + contactsManager.myFriends[i].email);
-                System.out.println("\n");
+                System.out.print("\n");
             }
         }
         else{
@@ -87,19 +83,8 @@ public class ActionsMenu {
 
     }
     public void searchContact(){
-        Contact foundContact;
         System.out.println("Enter contact name:");
-        foundContact = contactsManager.matchContact(scannerIn.nextLine());
-        if (foundContact != null){
-            System.out.println("Contact found:\n" +
-                    foundContact.name + ", "
-                    + foundContact.phoneNumber+ ", "
-                    + foundContact.email + "\n");
-        }
-        else{
-            System.out.println("Contact not found\n");
-        }
-
+        contactsManager.matchContact(scannerIn.nextLine());
     }
     public void removeContact(){
         Contact removed;
