@@ -19,7 +19,8 @@ public class ActionsMenu {
                 "1. Add contact\n"+
                 "2. Show contacts\n"+
                 "3. Search contact\n"+
-                "4. Exit\n");
+                "4. Remove contact\n"+
+                "5. Exit\n");
     }
     public String readOption(){
         selectedOption = scannerIn.nextLine();
@@ -28,18 +29,22 @@ public class ActionsMenu {
     public void runAction(String option){
         switch (option){
             case "1":
-                System.out.println("Add option selected\n");
+                //System.out.println("Add option selected\n");
                 addOption();
                 break;
             case "2":
-                System.out.println("Show option selected\n");
+                //System.out.println("Show option selected\n");
                 showContacts();
                 break;
             case "3":
-                System.out.println("Search option selected\n");
+                //System.out.println("Search option selected\n");
                 searchContact();
                 break;
             case "4":
+                //System.out.println("Remove contact\n");
+                removeContact();
+                break;
+            case "5":
                 System.out.println("Exit program...\n");
                 break;
             default:
@@ -65,10 +70,19 @@ public class ActionsMenu {
         contactsManager.addContact(newContact);
     }
     public void showContacts(){
-        for(int i=0; i<contactsManager.friendsCount; i++){
-            System.out.println((i + 1) + "." + "\t" + contactsManager.myFriends[i].name + ", "
-                    + contactsManager.myFriends[i].phoneNumber + ", "
-                    + contactsManager.myFriends[i].email);
+        if (contactsManager.friendsCount > 0) {
+            System.out.println("Contacts list:");
+            for (int i = 0; i < contactsManager.friendsCount; i++) {
+                System.out.print((i + 1) + "." + "\t" + contactsManager.myFriends[i].name);
+                if (!contactsManager.myFriends[i].phoneNumber.equals(""))
+                    System.out.print( ", " + contactsManager.myFriends[i].phoneNumber);
+                if (!contactsManager.myFriends[i].email.equals(""))
+                    System.out.print( ", " + contactsManager.myFriends[i].email);
+                System.out.println("\n");
+            }
+        }
+        else{
+            System.out.println("No contacts stored\n");
         }
 
     }
@@ -86,5 +100,22 @@ public class ActionsMenu {
             System.out.println("Contact not found\n");
         }
 
+    }
+    public void removeContact(){
+        Contact removed;
+        System.out.println("Enter contact name to be deleted:");
+        removed = contactsManager.removeContact(scannerIn.nextLine());
+        if (removed != null){
+            System.out.println("Contact removed:");
+            System.out.print(removed.name);
+            if (!removed.phoneNumber.equals(""))
+                System.out.print( ", " + removed.phoneNumber);
+            if (!removed.email.equals(""))
+                System.out.print( ", " + removed.email);
+            System.out.println("\n");
+        }
+        else{
+            System.out.println("Contact not found");
+        }
     }
 }

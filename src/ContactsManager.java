@@ -37,4 +37,23 @@ public class ContactsManager {
         }
         return null;
     }
+    Contact removeContact(String contactName){
+        boolean found = false;
+        Contact removed = null;
+        for(int i=0; i<friendsCount; i++){
+            if (found){
+                myFriends[i-1] = myFriends[i];
+                myFriends[i] = null;
+            }
+            else if(myFriends[i].name.equals(contactName)){
+                removed = myFriends[i];
+                myFriends[i] = null;
+                found = true;
+            }
+        }
+        if (found) {
+            friendsCount--;
+        }
+        return removed;
+    }
 }
