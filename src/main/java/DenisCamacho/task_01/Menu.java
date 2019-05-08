@@ -1,8 +1,8 @@
-package denis_camacho;
+package main.java.DenisCamacho.task_01;
 
 import java.util.Scanner;
 
-public class Main {
+public class Menu {
 
     public static void main(String[] args) {
         ContactManager myContactManager = new ContactManager();

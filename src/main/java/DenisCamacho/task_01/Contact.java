@@ -1,4 +1,4 @@
-package denis_camacho;
+package main.java.DenisCamacho.task_01;
 
 public class Contact {
     private String name;
