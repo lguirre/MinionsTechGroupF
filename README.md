@@ -9,7 +9,5 @@ Branch name:
 e.g.
 
 daniel_lopez/task/contact_manager
-
 daniel_lopez/task/tic_tac_toe
-
 daniel_lopez/project/xml_reader
