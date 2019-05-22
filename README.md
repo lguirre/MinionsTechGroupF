@@ -24,6 +24,7 @@ Project structure:
 Project rules:
 ==============
 - Versionar el codigo
-- Metodos con con un maximo de 10 lineas
+- Metodos con con un maximo de 15 lineas
 - Codigo documentado
 - Unit test
+- Diagrama de clases
