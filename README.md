@@ -19,12 +19,13 @@ Project structure:
 1. Introduccion
 2. Objetivo general
 3. Objectivos Especificos
-4. Desarrollo del proyecto
+4. Diagrama de clases
+5. Desarrollo del proyecto
 
 Project rules:
 ==============
+- Diagrama de clases
 - Versionar el codigo
 - Metodos con con un maximo de 15 lineas
 - Codigo documentado
 - Unit test
-- Diagrama de clases
