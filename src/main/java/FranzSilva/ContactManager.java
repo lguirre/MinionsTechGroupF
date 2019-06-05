@@ -47,11 +47,12 @@ public class ContactManager {
     /**
      * Shows all Contacts on specific Format.
      */
-    public void showContacts(List<Contact> contactListToShow) {
+    public String showContacts(List<Contact> contactListToShow) {
         int numerator = 0;
         String format = "| %1$s. %2$s";
         StringJoiner stringJoiner;
-        System.out.println("| N.    Name         Email         Phone");
+        StringJoiner stringFinalResult = new StringJoiner("\n");
+        stringFinalResult.add("| N.    Name         Email         Phone");
         for (Contact contact : contactListToShow) {
             stringJoiner = new StringJoiner(", ");
             if(!contact.getName().isEmpty() || contact.getName().length()>0){
@@ -63,8 +64,9 @@ public class ContactManager {
             if(!contact.getPhoneNumber().isEmpty() || contact.getPhoneNumber().length()>0){
                 stringJoiner.add(contact.getPhoneNumber());
             }
-            System.out.println(String.format(format, ++numerator, stringJoiner.toString()));
+            stringFinalResult.add(String.format(format, ++numerator, stringJoiner.toString()));
         }
+        return stringFinalResult.toString();
     }
 
     /**
@@ -73,6 +75,6 @@ public class ContactManager {
      * @param name - name to eliminate.
      */
     public void removedContact(String name) {
-        contactList.stream().filter(contact -> contact.getName().contains(name)).forEachOrdered(contact -> contactList.remove(contact));
+        contactList.removeIf(contact -> contact.getName().contains(name));
     }
 }

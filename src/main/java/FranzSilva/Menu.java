@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Menu {
 
-    public static void main(String[] args) {
+    public void startMenu(){
         ContactManager contactManager = new ContactManager();
         Contact contact;
         Scanner scanner = new Scanner(System.in);
@@ -26,16 +26,16 @@ public class Menu {
                     System.out.println("Insert Phone Number");
                     contact.setPhoneNumber(scanner.next());
                     contactManager.addContact(contact);
-                    contactManager.showContacts(contactManager.getContactList());
+                    System.out.println(contactManager.showContacts(contactManager.getContactList()));
                     break;
                 case 2:
                     System.out.println("------------ CONTACTS LIST: ------------");
-                    contactManager.showContacts(contactManager.getContactList());
+                    System.out.println(contactManager.showContacts(contactManager.getContactList()));
                     break;
                 case 3:
                     System.out.println("------------ SEARCH CONTACT: ------------");
                     System.out.println("insert name to search");
-                    contactManager.showContacts(contactManager.searchContact(scanner.next()));
+                    System.out.println(contactManager.showContacts(contactManager.searchContact(scanner.next())));
                     break;
                 case 4:
                     System.out.println("------------ REMOVE CONTACT: ------------");
